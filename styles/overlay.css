@@ -1,0 +1,117 @@
+/* Overlay principal pour ajouter un verbe */
+#add-verb-overlay {
+  position: fixed; /* Positionnement fixe pour rester visible lors du défilement */
+  top: 20%; /* Distance par rapport au haut de la fenêtre */
+  left: 5%; /* Distance par rapport à la gauche de la fenêtre */
+  width: 90%; /* Largeur de l'overlay */
+  background-color: white; /* Couleur de fond blanche */
+  padding: 1rem; /* Espacement intérieur */
+  border-radius: 6px; /* Bords arrondis */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Ombre pour un effet en relief */
+  z-index: 100; /* Superposition au-dessus des autres éléments */
+  text-align: center; /* Centrage du texte */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Ombre supplémentaire */
+  animation: fadeIn 0.3s ease-out; /* Animation d'apparition fluide */
+  display: none; /* Masqué par défaut */
+}
+
+/* Animation d'apparition pour l'overlay */
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Transparence initiale */
+    transform: scale(0.9); /* Réduction initiale */
+  }
+  to {
+    opacity: 1; /* Apparence complète */
+    transform: scale(1); /* Taille normale */
+  }
+}
+
+/* Fond semi-transparent derrière l'overlay */
+#backdrop {
+  position: fixed; /* Positionnement fixe */
+  top: 0; /* Commence en haut de la fenêtre */
+  left: 0; /* Commence à gauche de la fenêtre */
+  width: 100%; /* Prend toute la largeur */
+  height: 100%; /* Prend toute la hauteur */
+  background-color: rgba(0, 0, 0, 0.7); /* Couleur sombre et transparente */
+  z-index: 99; /* Superposition légèrement inférieure à l'overlay */
+  display: none; /* Masqué par défaut */
+}
+
+/* Titre de l'overlay */
+#add-verb-overlay h2 {
+  margin: 0.5rem 0; /* Espacement autour */
+  padding: 0.5rem 0; /* Espacement intérieur */
+  background-color: #6fcfef; /* Couleur de fond */
+  border-radius: 4px; /* Bords arrondis */
+}
+
+/* Titre alternatif pour la mise à jour */
+.update-verb-h2 {
+  display: none; /* Masqué par défaut */
+}
+
+/* Contrôles du formulaire */
+.form-control label {
+  display: block; /* Affichage en bloc */
+  margin-bottom: 0.5rem; /* Espacement inférieur */
+  font-weight: bold; /* Texte en gras */
+}
+
+.form-control input {
+  font: inherit; /* Police héritée */
+  border: 1px solid rgb(204, 204, 204); /* Bordure gris clair */
+  width: 15rem; /* Largeur définie */
+  padding: 0.35rem; /* Espacement intérieur */
+  margin-bottom: 0.5rem; /* Espacement inférieur */
+}
+
+/* Boutons du formulaire */
+.form-btn {
+  text-align: center; /* Texte centré */
+  width: 6.25rem; /* Largeur définie */
+  margin-top: 0.5rem; /* Espacement supérieur */
+  padding: 0.5rem 1.5rem; /* Espacement intérieur */
+  font-weight: 550; /* Poids de police moyen */
+  font-size: 0.9rem; /* Taille de la police */
+  background-color: #6fcfef; /* Couleur de fond */
+  color: white; /* Texte blanc */
+  border-radius: 4px; /* Bords arrondis */
+  border: 1px solid #6fcfef; /* Bordure */
+  cursor: pointer; /* Curseur pointer */
+  transition: 0.3s ease-out; /* Transition fluide */
+}
+
+/* Effet au survol des boutons */
+.form-btn:hover {
+  background-color: #1192bd; /* Couleur de fond plus sombre */
+  border-color: #1192bd; /* Bordure assortie */
+}
+
+/* Bouton alternatif */
+.btn-alt {
+  color: #6fcfef; /* Texte coloré */
+  background: transparent; /* Fond transparent */
+  border-color: transparent; /* Bordure transparente */
+}
+
+/* Effet au survol pour le bouton alternatif */
+.btn-alt:hover {
+  background-color: rgb(245, 232, 255); /* Fond légèrement coloré */
+  border-color: transparent; /* Bordure inchangée */
+}
+
+/* Mise en évidence des erreurs */
+.config-error input:first-of-type {
+  background-color: rgba(252, 126, 126, 0.691); /* Fond rouge clair */
+  border-color: rgb(178, 4, 4); /* Bordure rouge foncé */
+}
+
+/* Styles pour écrans larges */
+@media (min-width: 48rem) {
+  #add-verb-overlay {
+    left: calc(50% - 20rem); /* Centrage horizontal */
+    width: 40rem; /* Largeur fixe */
+  }
+}

@@ -1,0 +1,185 @@
+/* Appliquer le modèle de boîte par défaut et supprimer les marges/paddings pour tous les éléments */
+* {
+  box-sizing: border-box; /* Inclut les bordures et le padding dans les dimensions */
+  margin: 0; /* Supprime les marges */
+  padding: 0; /* Supprime les paddings */
+}
+
+/* Styles pour la fenêtre modale (pop-up) */
+.modal {
+  display: none; /* Masquée par défaut */
+  position: fixed; /* Positionnement fixe pour couvrir toute la page */
+  z-index: 1000; /* Superposition élevée */
+  left: 0; /* Bord gauche de l'écran */
+  top: 0; /* Bord supérieur de l'écran */
+  width: 100%; /* Largeur complète */
+  height: 100%; /* Hauteur complète */
+  overflow: auto; /* Permet de scroller si le contenu dépasse */
+  background-color: rgba(0, 0, 0, 0.4); /* Fond semi-transparent noir */
+  font-family: Arial, sans-serif; /* Police par défaut */
+}
+
+/* Contenu de la modale */
+.modal-content {
+  background-color: #f9f9f9; /* Couleur de fond claire */
+  margin: 4.5% auto; /* Centré verticalement avec un espacement */
+  padding: 1.55rem; /* Espacement intérieur */
+  border-radius: 10px; /* Coins arrondis */
+  width: 90%; /* Largeur maximale à 90% */
+  max-width: 43.5rem; /* Largeur maximale fixe */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Ombre pour un effet de profondeur */
+  animation: fadeIn 0.3s ease-out; /* Animation d'apparition */
+}
+
+/* Animation d'apparition de la modale */
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Départ transparent */
+    transform: scale(0.9); /* Réduction initiale */
+  }
+  to {
+    opacity: 1; /* Pleine opacité */
+    transform: scale(1); /* Taille normale */
+  }
+}
+
+/* En-tête de la modale */
+.modal-header {
+  display: flex; /* Affichage en flexbox */
+  justify-content: space-between; /* Espacement entre les éléments */
+  align-items: center; /* Alignement vertical centré */
+  border-bottom: 2px solid #e0e0e0; /* Ligne séparatrice en bas */
+  padding-bottom: 15px; /* Espacement inférieur */
+  margin-bottom: 20px; /* Marges extérieures */
+}
+
+/* Titre dans l'en-tête */
+.modal-header h2 {
+  color: #333; /* Couleur sombre */
+  font-size: 1.5rem; /* Taille de police */
+  font-weight: bold; /* Texte en gras */
+}
+
+/* Bouton de fermeture */
+.close-btn {
+  color: #aaa; /* Couleur gris clair */
+  font-size: 30px; /* Taille de police */
+  font-weight: bold; /* Texte en gras */
+  cursor: pointer; /* Curseur de clic */
+  transition: color 0.2s ease; /* Transition fluide pour le changement de couleur */
+}
+
+/* Effet au survol du bouton de fermeture */
+.close-btn:hover {
+  color: #000; /* Couleur noire */
+}
+
+/* Conteneur pour les détails du verbe */
+.verb-details {
+  display: grid; /* Affichage en grille */
+  grid-template-columns: 1fr 1fr; /* Deux colonnes de taille égale */
+  gap: 20px; /* Espacement entre les éléments */
+}
+
+/* Sections individuelles de détails */
+.detail-section {
+  background-color: #fff; /* Fond blanc */
+  border: 1px solid #e0e0e0; /* Bordure gris clair */
+  border-radius: 6px; /* Coins arrondis */
+  padding: 15px; /* Espacement intérieur */
+}
+
+/* Titres des sections de détails */
+.detail-section h3 {
+  color: #444; /* Couleur sombre */
+  border-bottom: 1px solid #e0e0e0; /* Ligne séparatrice en bas */
+  padding-bottom: 10px; /* Espacement intérieur */
+  margin-bottom: 10px; /* Marges extérieures */
+}
+
+/* Contenu des détails */
+.detail-content {
+  color: #666; /* Couleur de texte gris foncé */
+}
+
+/* Paragraphes dans le contenu */
+.detail-content p {
+  margin-bottom: 0.5rem; /* Espacement inférieur */
+}
+
+/* Listes flexibles pour les synonymes, exemples ou images */
+.synonyms-list,
+.examples-list,
+.images-container {
+  display: flex; /* Affichage flexible */
+  flex-wrap: wrap; /* Permet de passer à la ligne si nécessaire */
+  gap: 10px; /* Espacement entre les éléments */
+}
+
+/* Style des tags synonymes */
+.synonym-tag {
+  background-color: #f0f0f0; /* Fond gris clair */
+  padding: 5px 10px; /* Espacement intérieur */
+  border-radius: 15px; /* Coins arrondis */
+  font-size: 0.9rem; /* Taille de police réduite */
+}
+
+/* Style des exemples */
+.example-item {
+  background-color: #f9f9f9; /* Fond clair */
+  border-left: 3px solid #4caf50; /* Bordure gauche verte */
+  padding: 10px; /* Espacement intérieur */
+  margin-bottom: 10px; /* Espacement extérieur */
+}
+
+/* Style des images */
+.images-container img {
+  max-width: 100px; /* Largeur maximale */
+  max-height: 100px; /* Hauteur maximale */
+  border-radius: 5px; /* Coins arrondis */
+  object-fit: cover; /* Ajustement de l'image au conteneur */
+}
+
+/* Pied de la modale */
+.modal-footer {
+  margin-top: 20px; /* Espacement supérieur */
+  text-align: right; /* Alignement à droite */
+}
+
+/* Bouton de fermeture dans le pied de page */
+.btn-close {
+  background-color: #4caf50; /* Fond vert */
+  color: white; /* Texte blanc */
+  border: none; /* Pas de bordure */
+  padding: 10px 20px; /* Espacement intérieur */
+  border-radius: 5px; /* Coins arrondis */
+  cursor: pointer; /* Curseur de clic */
+  transition: background-color 0.2s ease; /* Transition pour le changement de couleur */
+}
+
+/* Effet au survol du bouton */
+.btn-close:hover {
+  background-color: #45a049; /* Vert légèrement plus foncé */
+}
+
+/* Liste des verbes */
+.verb-list {
+  display: flex; /* Affichage flexible */
+  flex-wrap: wrap; /* Passage à la ligne si nécessaire */
+  gap: 10px; /* Espacement entre les éléments */
+  margin-bottom: 20px; /* Espacement inférieur */
+}
+
+/* Élément individuel de la liste des verbes */
+.verb-list-item {
+  background-color: #f0f0f0; /* Fond gris clair */
+  padding: 10px; /* Espacement intérieur */
+  border-radius: 5px; /* Coins arrondis */
+  cursor: pointer; /* Curseur de clic */
+  transition: background-color 0.2s ease; /* Transition pour le changement de couleur */
+}
+
+/* Effet au survol des éléments de la liste */
+.verb-list-item:hover {
+  background-color: #e0e0e0; /* Fond légèrement plus foncé */
+}

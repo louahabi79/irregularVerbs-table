@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Définit le type de document et la langue principale (anglais) -->
+    <meta charset="UTF-8" />
+    <!-- Assure que la page est responsive et s'adapte aux différents appareils -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>English: Irregular Verbs</title>
+    <!-- Lien vers des fichiers CSS externes pour la mise en page -->
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/overlay.css" />
+    <link rel="stylesheet" href="styles/verbDetails.css" />
+    <!-- Lien vers des fichiers JavaScript externes -->
+    <script src="scripts/config.js" defer></script>
+    <!-- `defer` permet de charger le JS après le HTML -->
+    <script src="scripts/verbs.js" defer></script>
+    <script src="scripts/verbDetails.js"></script>
+    <script src="scripts/app.js" defer></script>
+    <!-- Importation d'une bibliothèque d'icônes -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Arrière-plan semi-transparent utilisé pour des effets d'overlay -->
+    <div id="backdrop"></div>
+
+    <!-- Section de l'en-tête contenant les flèches de navigation et le titre -->
+    <header id="header">
+      <section class="header-container">
+        <!-- Flèches pour naviguer dans le contenu -->
+        <div class="arrows">
+          <i class="bx bxs-left-arrow"></i>
+          <i class="bx bxs-right-arrow"></i>
+        </div>
+        <!-- Titre de la page -->
+        <div class="header-title">
+          <h1>English: Irregular Verbs</h1>
+        </div>
+      </section>
+    </header>
+
+    <!-- Section overlay pour ajouter ou mettre à jour un verbe -->
+    <aside id="add-verb-overlay">
+      <h2 class="add-verb-h2">ADD A VERB</h2>
+      <h2 class="update-verb-h2">UPDATE VERB</h2>
+      <form action="" class="form-control" id="add-verb-form">
+        <div>
+          <!-- Champs pour les détails du verbe -->
+          <label for="base-form">Base Form</label>
+          <input
+            type="text"
+            name="baseForm"
+            id="base-form"
+            placeholder="Enter the verb"
+          />
+          <!-- Zone pour afficher des messages d'erreur -->
+          <p id="config-errors" style="color: red"></p>
+          <label for="past-tense">Past Tense</label>
+          <input
+            type="text"
+            name="pastTense"
+            id="past-tense"
+            placeholder="Enter the verb's past tense"
+          />
+          <label for="past-participle">Past Participle</label>
+          <input
+            type="text"
+            name="pastParticiple"
+            id="past-participle"
+            placeholder="Enter the verb's past participle"
+          />
+          <label for="translation">Translation</label>
+          <input
+            type="text"
+            name="Translation"
+            id="translation"
+            placeholder="Enter the translation"
+          />
+        </div>
+        <!-- Boutons pour soumettre ou réinitialiser le formulaire -->
+        <div class="overlay-btn">
+          <button type="reset" class="form-btn btn-alt" id="cancel-config-btn">
+            Cancel
+          </button>
+          <button type="submit" class="form-btn" id="confirm-btn">
+            Confirm
+          </button>
+        </div>
+      </form>
+    </aside>
+
+    <main>
+      <!-- Conteneur de la table affichant la liste des verbes -->
+      <section class="table-container">
+        <table>
+          <thead>
+            <!-- En-têtes de la table pour les détails des verbes -->
+            <th>Base Form</th>
+            <th>Past Tense</th>
+            <th>Past Participle</th>
+            <th>Translation</th>
+            <th></th>
+          </thead>
+          <!-- Contenu dynamique de la table inséré via JavaScript -->
+          <tbody id="table-content"></tbody>
+        </table>
+      </section>
+
+      <!-- Panneau latéral droit pour des fonctionnalités supplémentaires -->
+      <aside id="right-panel" class="right-panel">
+        <!-- Flèches pour ouvrir/fermer le panneau -->
+        <i class="bx bxs-right-arrow"></i>
+        <i class="bx bxs-left-arrow"></i>
+        <div class="right-panel-container">
+          <!-- En-tête du panneau avec des champs pour ajouter ou rechercher des verbes -->
+          <div class="aside-header">
+            <input
+              type="button"
+              name="add"
+              id="add-btn"
+              value="Add Verb"
+              class="right-panel-btn"
+            />
+            <input
+              type="text"
+              name="verb"
+              id="find-verb"
+              placeholder="Verb to find"
+            />
+            <input
+              type="button"
+              name="find"
+              id="find-btn"
+              value="Find"
+              class="right-panel-btn"
+            />
+          </div>
+          <!-- Place pour une liste dynamique de liens alphabétiques -->
+          <div class="aside-main">
+            <ul id="list-of-letters-link"></ul>
+          </div>
+          <!-- Pied de page affichant des statistiques -->
+          <div class="aside-footer">
+            <h4>Statistics</h4>
+            <ul id="letters-stat">
+              <li>
+                <span id="verbs-average" class="dynamic-stat"></span> verbs on
+                average per letter:
+              </li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <!-- Modal affichant les détails d'un verbe -->
+    <div id="verbDetailsModal" class="modal">
+      <div class="modal-content">
+        <!-- En-tête du modal avec un titre et un bouton de fermeture -->
+        <div class="modal-header">
+          <h2 id="verbModalTitle">Verb Details</h2>
+          <span class="close-btn">&times;</span>
+        </div>
+        <!-- Contenu dynamique pour les détails du verbe -->
+        <div id="verbDetailsContent"></div>
+        <!-- Pied du modal avec un bouton de fermeture -->
+        <div class="modal-footer">
+          <button class="btn-close">Close</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

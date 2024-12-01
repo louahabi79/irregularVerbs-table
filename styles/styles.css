@@ -1,0 +1,185 @@
+/* Réinitialisation des marges et paddings par défaut pour tous les éléments */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Empêche le défilement horizontal */
+  overflow-y: hidden; /* Empêche le défilement vertical */
+  scroll-behavior: smooth; /* Défilement fluide */
+}
+
+/* Style pour l'en-tête */
+.header-container {
+  height: 12.5vh; /* Hauteur de l'en-tête */
+  margin: 0.2rem;
+  padding: 0.5rem 1.2rem;
+  background-color: #93dbf3; /* Couleur de fond bleu clair */
+  color: #ff4040; /* Couleur du texte rouge */
+  border: 4px solid #404040; /* Bordure épaisse grise */
+  display: flex; /* Utilisation de flexbox */
+  justify-content: space-between; /* Espace entre les éléments */
+  align-items: flex-end; /* Alignement en bas des éléments */
+}
+
+.bx {
+  font-size: 1.7rem; /* Taille des icônes */
+  cursor: pointer; /* Curseur interactif */
+}
+
+/* Contenu principal */
+main {
+  display: flex; /* Affichage des éléments en ligne */
+  justify-content: space-between; /* Espacement uniforme entre les sections */
+}
+
+/* Style pour la table principale */
+.table-container {
+  min-width: 97.55%; /* Largeur minimale */
+}
+
+.adjust-table {
+  min-width: 63.7%; /* Largeur minimale ajustée */
+}
+
+.table-container,
+#right-panel {
+  margin: 0 0.2rem;
+  height: 86vh; /* Hauteur principale */
+  overflow: auto; /* Permet le défilement */
+  border: 4px solid black; /* Bordure noire */
+  transition: 0.4s ease; /* Transition fluide pour les modifications */
+}
+
+table {
+  width: 100%; /* La table occupe toute la largeur */
+  outline: none; /* Pas de contour */
+}
+
+th,
+td {
+  border: 1px solid rgb(215, 215, 215); /* Bordures des cellules */
+}
+
+th {
+  text-align: start; /* Texte aligné à gauche */
+  padding: 0.2rem 0.2rem;
+  background-color: #7fffd4; /* Fond vert clair */
+  position: sticky; /* En-têtes fixes au défilement */
+  top: 0;
+  z-index: 1;
+}
+
+td {
+  padding: 0.4rem 0.2rem; /* Espace intérieur des cellules */
+  color: inherit; /* Hérite de la couleur du parent */
+}
+
+.btn {
+  padding: 0.1rem 0;
+  width: 4rem; /* Largeur fixe des boutons */
+  cursor: pointer;
+}
+
+tbody tr:nth-child(2n) {
+  background-color: #ffe4c4; /* Alternance des lignes (fond beige) */
+}
+
+/* Style pour le panneau latéral droit */
+#right-panel {
+  transition: 0.3s ease; /* Transition fluide pour le panneau */
+}
+
+main .right-panel {
+  width: 34.8%; /* Largeur du panneau droit */
+  background-color: #6fcfef; /* Couleur de fond bleu clair */
+  overflow: hidden; /* Cache tout débordement */
+  font-size: 0.8rem; /* Taille de la police */
+  position: absolute;
+  right: -32.7%; /* Position du panneau à droite (hors écran par défaut) */
+}
+
+main .adjust-panel {
+  position: relative;
+  right: 0; /* Le panneau est visible */
+}
+
+#right-panel .bx {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%); /* Centre l'icône verticalement */
+  font-size: 1.7rem; /* Taille de l'icône */
+}
+
+#right-panel .bxs-right-arrow {
+  display: none; /* Cache l'icône de flèche droite */
+}
+
+.right-panel-container {
+  background-color: white; /* Fond blanc */
+  margin-left: 2rem;
+  height: 100%;
+}
+
+.aside-header {
+  display: flex; /* Affichage des éléments en ligne */
+  justify-content: flex-start; /* Alignement des éléments à gauche */
+  padding: 1rem 0 1rem 0.5rem;
+}
+
+.aside-header input {
+  margin-left: 0.8rem; /* Espace entre les champs */
+  font-size: 0.7rem; /* Taille du texte */
+  padding: 0.1rem 0;
+  padding-left: 0.1rem;
+}
+
+.right-panel-btn {
+  width: 5rem; /* Largeur fixe pour les boutons */
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.aside-main {
+  height: calc(86vh - 8rem); /* Hauteur dynamique basée sur l'écran */
+  display: flex; /* Flexbox pour centrer le contenu */
+  justify-content: center;
+  align-items: center;
+  border: 3px dotted #e5e5e5; /* Bordure pointillée grise */
+  margin: 0 0.8rem 0;
+  overflow: auto; /* Permet le défilement si nécessaire */
+}
+
+#list-of-letters-link li {
+  list-style: inside;
+}
+
+.letter {
+  color: #fc1100; /* Couleur rouge vif */
+  font-weight: 900; /* Police en gras */
+  font-size: 1.2rem; /* Taille du texte */
+}
+
+.aside-footer {
+  text-align: center; /* Centre le texte */
+  margin: 0 0.8rem 0;
+}
+
+.aside-footer ul {
+  list-style: none; /* Supprime les puces */
+  display: flex; /* Affiche les éléments en ligne */
+  gap: 1rem; /* Espace entre les éléments */
+  padding: 1rem 0.2rem 0.4rem;
+  background-color: #6fcfef; /* Couleur de fond bleu clair */
+  overflow-x: auto; /* Permet le défilement horizontal */
+  white-space: nowrap; /* Évite que le texte soit sur plusieurs lignes */
+}
+
+.aside-footer ul li {
+  flex-shrink: 0; /* Les éléments ne se réduisent pas */
+}
+
+.highlight {
+  color: red; /* Texte en rouge */
+  font-size: 700; /* Taille spécifique du texte */
+}
